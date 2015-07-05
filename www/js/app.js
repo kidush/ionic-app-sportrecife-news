@@ -1,4 +1,4 @@
-angular.module('sportnews', ['ionic', 'service'])
+angular.module('sportnews', ['ionic', 'sportnews.service'])
 
 .constant('ApiEndpoint', {
   url: 'http://localhost:8100/api'
@@ -15,11 +15,10 @@ angular.module('sportnews', ['ionic', 'service'])
   });
 })
 
-.controller('SportNewsCtrl', function ($http, $scope) {
-  
+.controller('SportNewsCtrl', function ($http, $scope, ApiEndpoint) {
   $scope.stories = [];
 
-  $http.get('http://globoesporte.globo.com/servico/equipe/sport/jogos.json')
+  $http.get(ApiEndpoint.url + '/equipe/sport/jogos.json')
    .success(function(response){
     console.log(response);
    }).error(function(error) { console.log(error)

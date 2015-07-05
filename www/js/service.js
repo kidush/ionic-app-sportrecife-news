@@ -1,4 +1,4 @@
-angular.module('service', [])
+angular.module('sportnews.service', [])
 
 .factory('Api', function($http, ApiEndpoint) {
   console.log('ApiEndpoint', ApiEndpoint)
